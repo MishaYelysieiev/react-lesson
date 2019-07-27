@@ -1,0 +1,20 @@
+.Menu{
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    padding-right: 150px;
+
+}
+
+.Menu-link{
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border: 2px solid transparent;
+    transition: 0.4s;
+}
+
+.Menu-link:hover{
+    border-color: #061e25;
+}

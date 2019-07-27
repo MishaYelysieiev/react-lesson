@@ -1,0 +1,40 @@
+.Banner{
+    height: 450px;
+    display: flex;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(0,0,0,0.3);
+    flex: 1 0 50vw;
+}
+
+.Banner-info{
+    position: absolute;
+    top: 250px;
+    right: 100px;
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 2px black;
+    transition: 0.4s;
+}
+
+.Banner:hover .Banner-info {
+    right: 70px;
+}
+
+.Banner-default{
+    background-image: url("../../img/banner-default.jpg");
+}
+
+.Banner-mount{
+    background-image: url("../../img/banner-mount.jpg");
+}
+
+.Banner-ocean{
+    background-image: url("../../img/banner-ocean.jpg");
+}
+
+.Banner-forest{
+    background-image: url("../../img/banner-forest.jpg");
+}
