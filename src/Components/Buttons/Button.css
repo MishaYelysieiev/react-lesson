@@ -7,5 +7,11 @@
     border-radius: 999999px;
     cursor: pointer;
     outline-style: none;
+    margin: 10px;
+    transition: 0.4s;
+}
+
+.Button:hover{
+    background-color: #506895;
 }
 

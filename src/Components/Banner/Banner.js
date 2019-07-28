@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types'
 import "./Banner.css"
 
 function Banner(props) {
@@ -11,5 +11,9 @@ function Banner(props) {
     )
 
 }
+
+Banner.propTypes = {
+    info:PropTypes.string.isRequired
+};
 
 export default Banner;

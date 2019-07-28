@@ -8,6 +8,10 @@ import Banner from "./Components/Banner/Banner";
 import BannerMountain from "./Components/Banner/Banner-mountain";
 import BannerOcean from "./Components/Banner/Banner-ocen";
 import BannerForest from "./Components/Banner/Banner-forest";
+import Button from "./Components/Buttons/Button"
+
+import {setName, setPassword, requestPassword} from "./Actions/SubheaderActions";
+
 
 import './App.css';
 
@@ -23,6 +27,9 @@ class App extends React.Component {
     setNewBtnText = function (newTitle) {
         this.setState({btnText: newTitle})
     };
+    createNewPass = function (newTitle) {
+        return parseInt(Math.random() * (999999-100000)+100000)
+    };
 
     componentDidMount() {
         this.setNewBtnText();
@@ -33,7 +40,7 @@ class App extends React.Component {
         const {user, banner} = this.props;
 
         return (
-            <main>
+            <main className="App">
                 <Header/>
                 <Route path='/mountain' component={BannerMountain}/>
                 <Route path='/ocean' component={BannerOcean}/>
@@ -41,20 +48,41 @@ class App extends React.Component {
                 <Banner class='Banner-default' info={banner.info}/>
                 <Subheader
                     title={`Your name is "${user.name}", your pass is "${user.password}" and you are an "${user.type}"`}
-                    click={this.setNewBtnText.bind(this, 'New Title')}
+                    click={() => {
+                        this.props.setNameAction('New Title')
+                    }}
                     btnText={this.state.btnText}/>
+                <Button click={
+                    () => {
+                        this.props.setPasswordAction()
+                    }}
+                        btnText="Get SW Password"/>
+                <Button click={
+                    () => {
+                        this.props.setRandomPasswordAction(this.createNewPass())
+                    }}
+                        btnText="Get Random Password"/>
             </main>
         );
     }
 }
 
 const mapStateToProps = function (store) {
-    console.log('string', store);
     return {
         user: store.user.client,
         banner: store.banner.banner
     }
 
 };
+const mapDispatchToProps = function (dispatch) {
+    return {
+        setNameAction: (name) => dispatch(setName(name)),
+        setPasswordAction: () => dispatch(requestPassword()),
+        setRandomPasswordAction: (password) => dispatch(setPassword(password))
+    }
+};
 
-export default connect(mapStateToProps)(App)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)
