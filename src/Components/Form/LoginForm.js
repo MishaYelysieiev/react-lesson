@@ -24,10 +24,10 @@ class LoginForm extends Component {
                     validate={[requiredInput]}
                 />
                 <Field
-                    name="password"
+                    name="confirm-password"
                     component={myInput}
                     type="password"
-                    placeholder="Password"
+                    placeholder="Confirm-password"
                     validate={[requiredInput, matchInput]}
                 />
                 <button type="submit" label="submit">Submit</button>
