@@ -8,7 +8,8 @@ import Banner from "./Components/Banner/Banner";
 import BannerMountain from "./Components/Banner/Banner-mountain";
 import BannerOcean from "./Components/Banner/Banner-ocen";
 import BannerForest from "./Components/Banner/Banner-forest";
-import Button from "./Components/Buttons/Button"
+import Button from "./Components/Buttons/Button";
+import Form from "./Components/Form/Form";
 
 import {setName, setPassword, requestPassword} from "./Actions/SubheaderActions";
 
@@ -28,7 +29,7 @@ class App extends React.Component {
         this.setState({btnText: newTitle})
     };
     createNewPass = function (newTitle) {
-        return parseInt(Math.random() * (999999-100000)+100000)
+        return parseInt(Math.random() * (999999 - 100000) + 100000)
     };
 
     componentDidMount() {
@@ -38,6 +39,7 @@ class App extends React.Component {
     render() {
 
         const {user, banner} = this.props;
+
 
         return (
             <main className="App">
@@ -62,8 +64,16 @@ class App extends React.Component {
                         this.props.setRandomPasswordAction(this.createNewPass())
                     }}
                         btnText="Get Random Password"/>
+                <h1>REDUX FORM</h1>
+                <Form onSubmit={this.submit}/>
+
             </main>
         );
+
+    }
+
+    submit(value){
+        console.log(JSON.stringify(value));
     }
 }
 
