@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import {connect} from 'react-redux';
+import {reducer as formReducer} from 'redux-form';
 
 import Header from './Components/Header/Header';
 import Subheader from "./Components/Subheader/Subheader";
@@ -8,7 +9,8 @@ import Banner from "./Components/Banner/Banner";
 import BannerMountain from "./Components/Banner/Banner-mountain";
 import BannerOcean from "./Components/Banner/Banner-ocen";
 import BannerForest from "./Components/Banner/Banner-forest";
-import Button from "./Components/Buttons/Button"
+import Button from "./Components/Buttons/Button";
+import LoginForm from './Components/Form/LoginForm'
 
 import {setName, setPassword, requestPassword} from "./Actions/SubheaderActions";
 
@@ -27,7 +29,7 @@ class App extends React.Component {
     setNewBtnText = function (newTitle) {
         this.setState({btnText: newTitle})
     };
-    createNewPass = function (newTitle) {
+    createNewPass = function () {
         return parseInt(Math.random() * (999999-100000)+100000)
     };
 
@@ -36,7 +38,7 @@ class App extends React.Component {
     }
 
     render() {
-
+        const reducers = {form: formReducer};
         const {user, banner} = this.props;
 
         return (
@@ -62,9 +64,26 @@ class App extends React.Component {
                         this.props.setRandomPasswordAction(this.createNewPass())
                     }}
                         btnText="Get Random Password"/>
+                <h1>Redux Form</h1>
+                <LoginForm
+                    onSubmit={this.submit}
+                    initialValues={this.getInitialValues()}
+                />
+
             </main>
         );
     }
+
+    submit(values) {
+        window.alert (JSON.stringify (values));
+    };
+
+    getInitialValues() {
+        return {
+            username: 'Chubaka',
+            password: ''
+        }
+    };
 }
 
 const mapStateToProps = function (store) {
