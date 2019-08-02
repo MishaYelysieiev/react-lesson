@@ -10,11 +10,8 @@ import BannerMountain from "./Components/Banner/Banner-mountain";
 import BannerOcean from "./Components/Banner/Banner-ocen";
 import BannerForest from "./Components/Banner/Banner-forest";
 import Button from "./Components/Buttons/Button";
-<<<<<<< HEAD
-import Form from "./Components/Form/Form";
-=======
-import LoginForm from './Components/Form/LoginForm'
->>>>>>> 2d5dc8bd8753c92608093dccf8565318005fb9a5
+
+import LoginForm from './Components/Form/LoginForm';
 
 import {setName, setPassword, requestPassword} from "./Actions/SubheaderActions";
 
@@ -33,13 +30,8 @@ class App extends React.Component {
     setNewBtnText = function (newTitle) {
         this.setState({btnText: newTitle})
     };
-<<<<<<< HEAD
-    createNewPass = function (newTitle) {
-        return parseInt(Math.random() * (999999 - 100000) + 100000)
-=======
     createNewPass = function () {
         return parseInt(Math.random() * (999999-100000)+100000)
->>>>>>> 2d5dc8bd8753c92608093dccf8565318005fb9a5
     };
 
     componentDidMount() {
@@ -74,16 +66,12 @@ class App extends React.Component {
                         this.props.setRandomPasswordAction(this.createNewPass())
                     }}
                         btnText="Get Random Password"/>
-<<<<<<< HEAD
-                <h1>REDUX FORM</h1>
-                <Form onSubmit={this.submit}/>
-=======
+
                 <h1>Redux Form</h1>
                 <LoginForm
                     onSubmit={this.submit}
                     initialValues={this.getInitialValues()}
                 />
->>>>>>> 2d5dc8bd8753c92608093dccf8565318005fb9a5
 
             </main>
         );

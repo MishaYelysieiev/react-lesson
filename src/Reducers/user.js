@@ -1,7 +1,7 @@
 import {PASSWORD_REQUEST, SET_NAME, SET_PASSWORD} from "../Actions/SubheaderActions";
 
 
-const initialState = {
+export const initialState = {
     client: {
         name: 'Strange Name',
         password: 'qwerty1',
