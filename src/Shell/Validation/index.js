@@ -1,8 +1,8 @@
 export const requiredInput = input =>
-    !input && `Требуется ввод`;
+    !input && `Вимагається ввід`;
 
 export const correctInput = input =>
-    input !== 'Юрчик' && 'Неправильное имя пользователя';
+    input !== 'Орест' && 'Неправильне ім\'я користувача';
 
 export const matchInput = (input, allInputs) =>
-    input === allInputs.password && 'Пароль не совпадает';
+    input === allInputs.password && 'Пароль співпадає';
