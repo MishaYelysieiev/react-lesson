@@ -1,7 +1,6 @@
 import React from 'react';
 import {Route} from "react-router-dom";
 import {connect} from 'react-redux';
-import {reducer as formReducer} from 'redux-form';
 
 import Header from './Components/Header/Header';
 import Subheader from "./Components/Subheader/Subheader";
@@ -39,7 +38,6 @@ class App extends React.Component {
     }
 
     render() {
-        const reducers = {form: formReducer};
         const {user, banner} = this.props;
 
 
@@ -76,10 +74,6 @@ class App extends React.Component {
             </main>
         );
 
-    }
-
-    submit(value){
-        console.log(JSON.stringify(value));
     }
 
     submit(values) {

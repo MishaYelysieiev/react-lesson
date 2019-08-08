@@ -4,7 +4,7 @@ export const myInput = props => {
     const {input, type, placeholder, meta}=props;
 
     return (
-        <fragment>
+        <div>
             <input {...props.input}
                    type={props.type}
                    placeholder={props.placeholder}
@@ -15,6 +15,6 @@ export const myInput = props => {
                     {meta.error}
                 </div>
             }
-        </fragment>
+        </div>
     );
 };

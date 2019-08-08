@@ -18,6 +18,7 @@ export function setPassword(password) {
 }
 
 export function requestPassword() {
+
     return dispatch => {
         dispatch({
             type: PASSWORD_REQUEST,
@@ -26,7 +27,7 @@ export function requestPassword() {
 
         setTimeout(() => {
 
-            fetch(`https://swapi.co/api/people/${parseInt(Math.random()*87)}/`)
+            fetch(`https://swapi.co/api/people/${parseInt(Math.random()*80)}/`)
                 .then((res) => {
                     return res.json();
                 })
@@ -39,3 +40,4 @@ export function requestPassword() {
         }, 1000)
     }
 }
+
